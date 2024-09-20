@@ -12,13 +12,13 @@ using signalr_denemeChat.Models;
 namespace SignalRSample.Controllers
 {
 
-    public class OrderController : Controller
+    public class ChatController : Controller
     {
-        private readonly IHubContext<OrderHub> _orderHub;
-        public OrderController(IHubContext<OrderHub> orderHub)
+        private readonly IHubContext<ChatHub> _chatHub;
+        public OrderController(IHubContext<ChatHub> chatHub)
         {
 
-            _orderHub = orderHub;
+            _chatHub = chatHub;
         }
 
         public IActionResult Index()
@@ -28,10 +28,10 @@ namespace SignalRSample.Controllers
 
         [Route("[Controller]")]
         [HttpPost]
-        public IActionResult Order([FromBody] Order order)
+        public IActionResult Chat([FromBody] Chat chat)
         {
             //same bussines rules
-            _orderHub.Clients.All.SendAsync("lastOrder", order);
+            _chatHub.Clients.All.SendAsync("lastChat", chat);
 
             return Accepted();
         }

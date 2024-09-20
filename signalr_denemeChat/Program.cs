@@ -25,7 +25,8 @@ app.UseAuthorization();
 
 app.UseEndpoints(endpoints =>
  {
- endpoints.MapHub<OrderHub>("/orderhub");
+ endpoints.MapHub<ChatHub>("/chatHub");
+ 
  app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Order}/{action=Index}/{id?}");

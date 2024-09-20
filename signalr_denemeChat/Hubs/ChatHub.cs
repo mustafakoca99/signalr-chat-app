@@ -2,7 +2,7 @@
 
 namespace signalr_denemeChat.Hubs
 {
-    public class OrderHub: Hub
+    public class ChatHub: Hub
     {
         public override Task OnConnectedAsync()
         {
